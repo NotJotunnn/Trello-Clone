@@ -1,8 +1,4 @@
-// TODO setup config
-
-import dotenv from "dotenv";
-
-dotenv.config();
+import "dotenv/config";
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -20,9 +16,13 @@ const Knexfile = {
   migrations: {
     tableName: "knex_migrations",
     directory: "./src/models",
+    extension: "ts",
+    loadExtensions: [".ts"], // Explicitly tell Knex to use TS files
   },
   seeds: {
-    directory: "./src/Knex/seeds",
+    directory: "./src/db/seeds",
+    extension: "ts",
+    loadExtensions: [".ts"], // Explicitly tell Knex to use TS files
   },
 };
 
